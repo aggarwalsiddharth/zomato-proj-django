@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+    <span class="red-text text-lighten-2"><h3 align="center"> Welcome {{ username| title }}, </h3>
+        <br>
+        <br>
+    <h6 align="center">Here are a few quick actions:</h6></span>
+
+
+<a href ="{% url 'restaurants' %}?filter=rating&reverse=False">
+  <div class="row">
+    <div class="col s6 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="http://www.starwoodhotels.com/pub/media/1900/mer1900re.156604_xx.jpg">
+          <span class="card-title"><h4>Find the best restaurants, cafés, and bars<br><br><br></h4></span>
+        </div>
+      </div>
+    </div>
+  </a>
+
+
+<a href ="{% url 'addrestaurant' %}">
+
+    <div class="col s6 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="http://www.starwoodhotels.com/pub/media/1900/mer1900re.157004_xx.jpg">
+            <span class="card-title"><h4>Restaurant Owner? <br> Showcase your hotel to more than 10,000 viewers</h4></span>
+        </div>
+      </div>
+    </div>
+  </div></a>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

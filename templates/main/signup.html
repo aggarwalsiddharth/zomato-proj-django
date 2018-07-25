@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<center>Sign up to continue...</center>
+
+<div class="container">
+
+
+        <div class="card">
+    <div class="card-content">
+         <form action="" method="post">
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+                <div class = "input-field col s3">
+
+                    {{ field }}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                </div>
+
+            {% endfor %}
+
+<center>
+   <div class="col s4">
+                <button type="submit" class="waves-effect waves-light btn red">Sign Up</button>
+            </div>
+</center>
+         </form>
+
+    </div>
+
+      </div>
+</div>
+{% endblock %}

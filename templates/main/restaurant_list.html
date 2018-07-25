@@ -1,0 +1,90 @@
+{% extends 'main/base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+    <h2 align="center">Restaurants</h2>
+
+
+<br>
+<br>
+<h5 align="center">
+    <a href="{% url 'restaurants' %}?filter=a2z&reverse={{ r }}"><span class="red-text text-darken-2">A2Z</span></a>
+        &thinsp;
+    <a href="{% url 'restaurants' %}?filter=rating&reverse={{ r }}"><span class="red-text text-darken-2">Rating</span></a>
+        &thinsp;
+    <a href="{% url 'restaurants' %}?filter={{ f }}&reverse={% if r == 'True' %}False{% else %}True{% endif %}"><span class="red-text text-darken-2">Reverse</span></a>
+    </h5>
+
+
+
+
+<center>
+<ul class="pagination">
+    <li class="active">{% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}&filter=rating&reverse=True"> Prev </a><br />
+    {% endif %}<i class="material-icons"></i></a></li>
+
+    <li class="waves-effect"><a href="?page=1&filter=rating&reverse=True">1</a></li>
+    <li class="waves-effect"><a href="?page=2&filter=rating&reverse=True">2</a></li>
+    <li class="waves-effect"><a href="?page=3&filter=rating&reverse=True ">3</a></li>
+    <li class="waves-effect"><a href="?page=4&filter=rating&reverse=True">4</a></li>
+    <li class="waves-effect"><a href="?page=5&filter=rating&reverse=True">5</a></li>
+    <li class="waves-effect"><a href="?page=6&filter=rating&reverse=True">6</a></li>
+    <li class="waves-effect"><a href="?page=7&filter=rating&reverse=True">7</a></li>
+    <li class="waves-effect"><a href="?page=8&filter=rating&reverse=True">8</a></li>
+    <li class="waves-effect"><a href="?page=9&filter=rating&reverse=True">9</a></li>
+    <li class="waves-effect"><a href="?page=10&filter=rating&reverse=True">10</a></li>
+    <li class="active">{% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&filter=rating&reverse=True">Next</a>
+    {% endif %}<i class="material-icons"></i></a></li>
+  </ul>
+    </center>
+<br>
+<br>
+
+
+
+        {% for restaurant in restaurants %}
+
+ <ul>
+
+<li>
+
+    <div class="container">
+  <div class="col s12 m12 l10">
+    <div class="card horizontal">
+      <div class="card-image">
+        <a href="{% url 'restaurant' pk=restaurant.pk %}"> <img width="360pixels" height="240pixels" src="{{restaurant.thumbnail}}" ></a>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+            <a href="{% url 'restaurant' pk=restaurant.pk %}"><h3><b><span class="black-text text-darken-2">{{restaurant.name}}</span></b></h3></a>
+          <h6>{{restaurant.address}}</h6>
+          <h6> Average for two: Rs. {{restaurant.average_cost_for_two}}</h6>
+            <h6>Average Rating : {{restaurant.get_rating}}/5.0</h6>
+        </div>
+        <div class="card-action">
+          <a href="{{restaurant.menu_link}}">Menu</a>
+            <a href="{{restaurant.photo_link}}">Photos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+
+
+{% endblock %}

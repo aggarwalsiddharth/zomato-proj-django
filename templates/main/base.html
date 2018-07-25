@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <title>Zomato</title>
+    {% block head %}
+    {% endblock %}
+</head>
+<body bgcolor="#f5f5f5">
+
+
+
+<div class="card-panel red lighten-1">
+
+    <p align="right"><a href="{% url 'logout' %}"> <span class="white-text">Logout</span></a></p>
+    <span class="white-text text-darken-2">
+        <center><a href="{% url 'index' %}" class="brand-logo"><img src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_120,w_120,f_auto,b_white,q_auto:eco/v1506429243/skhqmbw3xxkfcuopf9yp.png" height="120" width="120"></a>
+        </center>
+    <h1 align="center" style="margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;"><i>Zomato</i></h1>
+        </span>
+    <p class="z-depth-5">
+
+    </p>
+
+</div>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'main/indexbase.html' %}
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<center>Sign in to continue...</center>
+
+<div class="container">
+
+
+        <div class="card">
+    <div class="card-content">
+         <form action="" method="post">
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+                <div class = "input-field col s3">
+
+                    {{ field }}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                </div>
+
+            {% endfor %}
+
+<center>
+   <div class="col s4">
+                <button type="submit" class="waves-effect waves-light btn red">Login</button>
+            </div>
+</center>
+         </form>
+
+    </div>
+    <div class="card-tabs" >
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a class="active" href="{% url 'signup' %}">Sign Up</a></li>
+      </ul>
+    </div>
+      </div>
+</div>
+{% endblock %}
