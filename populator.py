@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+list_cities =['Delhi','Mumbai','Bangalore','Kolkata','Chennai']
 
 for j in range(0,5):
      for i in range(0,1):
